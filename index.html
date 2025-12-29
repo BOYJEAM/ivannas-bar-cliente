@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVANNA'S BAR - Cliente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video id="background-video" autoplay muted loop playsinline>
+    <source src="assets/videos/background.mp4" type="video/mp4">
+  </video>
+
+  <img id="logo" src="assets/images/logo.png" alt="IVANNA'S BAR">
+
+  <audio id="sonido-carrusel" src="assets/sounds/soft-swipe-whoosh.mp3" preload="auto"></audio>
+
+  <div id="carousel">
+    <div id="carousel-container">
+      <div class="carousel-item" data-category="snacks">
+        <img src="assets/images/snacks_preparados.png" alt="SNACK'S Y PREPARADOS">
+        <div class="reflection"></div>
+      </div>
+      <div class="carousel-item" data-category="bebidas">
+        <img src="assets/images/bebidas.png" alt="BEBIDAS">
+        <div class="reflection"></div>
+      </div>
+      <div class="carousel-item" data-category="dulces">
+        <img src="assets/images/dulces.png" alt="DULCES">
+        <div class="reflection"></div>
+      </div>
+      <div class="carousel-item" data-category="cigarros">
+        <img src="assets/images/cigarros.png" alt="CIGARROS">
+        <div class="reflection"></div>
+      </div>
+      <div class="carousel-item" data-category="rockola">
+        <img src="assets/images/rockola_gratis.png" alt="ROCKOLA VIRTUAL">
+        <div class="reflection"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="order-success-message">
+    Listo, puede volver a ordenar en cualquier momento, en un momento le traemos su orden. 😃🫡
+  </div>
+
+  <div id="floating-list">
+    <h3>Items agregados</h3>
+    <div id="floating-list-content">
+      <div id="cart-items"></div>
+      <h3>Playlist</h3>
+      <div id="playlist-cart"></div>
+      <div id="total">Total: $0</div>
+    </div>
+    <button id="order-btn">LISTO, ORDENAR</button>
+  </div>
+
+  <div id="floating-buttons">
+    <button id="recibo-btn">RECIBO</button>
+    <button id="pagar-btn">PAGAR</button>
+  </div>
+
+  <div id="propina-gif-container">
+    <img id="propina-gif" src="assets/images/propinas.gif" alt="Propina animada">
+  </div>
+
+  <button id="llamar-mesero-btn">MESERO</button>
+
+  <div id="llamar-mesero-modal" class="modal">
+    <div class="modal-content">
+      <h2>¿Desea llamar al mesero?</h2>
+      <button class="confirm-btn" id="confirmar-mesero">CONFIRMAR</button>
+      <button class="cancel-btn" id="cancelar-mesero">CANCELAR</button>
+    </div>
+  </div>
+
+  <div id="mesero-message">
+    Mesero en camino... 🫡
+  </div>
+
+  <div id="snacks-modal" class="modal product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">SNACK'S Y PREPARADOS</h2>
+        <button class="close-btn">CERRAR</button>
+      </div>
+      <div class="modal-body">
+        <div class="item">Palomitas $40 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Sabritas $30 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Maruchan $45 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Nachos con queso $45 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Cacahuates preparados $30 <button class="add-btn">AGREGAR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bebidas-modal" class="modal product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">BEBIDAS</h2>
+        <button class="close-btn">CERRAR</button>
+      </div>
+      <div class="modal-body">
+        <h2>BEBIDAS CON ALCOHOL</h2>
+        <h3>CERVEZAS</h3>
+        <div class="item">1 Cerveza corona o victoria de media $35.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Promoción 6 cervezas coronas o victoria de media por $190.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Después de las 6pm, 6 cervezas coronas o victoria por $205.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 cartón de cerveza corona de media o victoria de media $770.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Caguama Mega Corona o Mega Victoria $80.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Promoción de 2 Caguama Mega Corona o Mega Victoria por $160.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 cartón de cerveza de Mega corona o Mega victoria $950.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Mega Modelo Especial o Negra Modelo Especial $100.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Cartón de Mega Especial o Negra Modelo Especial $1,140.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Miche-Mangó de lata $55.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Miche-Chamoy de lata $55.00 <button class="add-btn">AGREGAR</button></div>
+        <h3>MICHELADAS Y PREPARADOS</h3>
+        <div class="item">1 Azulito 1ltr $110.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Azulito ½ ltr $80.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Promoción 2 Azulitos por $110.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Michelada de Mango o Tamarindo de 1ltr $110.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Michelada de Mango o Tamarindo de ½ ltr $80 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Perro salado $75.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Piña Colada con o sin alcohol $85.00 <button class="add-btn">AGREGAR</button></div>
+        <h3>TEQUILAS Y LICORES</h3>
+        <div class="item">1 caballito de mezcal $55 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 copa de whisky Black and White $65.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Botella whisky Black and White $650.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 copa de whisky Red label $75.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Botella whisky Red label $800.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 copa de Torres 10 $70.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Botella Torres 10 $700 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 botella de Black Label $1,950.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 copa de Vodka Azul $55.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Botella Vodka Azul $550 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 botella de Vodka stolichnaya $900 <button class="add-btn">AGREGAR</button></div>
+        <h2>BEBIDAS SIN ALCOHOL</h2>
+        <div class="item">1 Coca cola $35.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Agua Natural $30.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Agua Mineral $35 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Gatorade de Uva o Azul $35 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Energetizante $45 <button class="add-btn">AGREGAR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dulces-modal" class="modal product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">DULCES</h2>
+        <button class="close-btn">CERRAR</button>
+      </div>
+      <div class="modal-body">
+        <div class="item">Banderillas $10.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Chicles clorex 3 cajitas x $10.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">1 Vagabundo $10.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">5 Vagabundos preparados $35.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Paletas TopsiPop $10.00 <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Paleta luminosa $15.00 <button class="add-btn">AGREGAR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cigarros-modal" class="modal product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">CIGARROS</h2>
+        <button class="close-btn">CERRAR</button>
+      </div>
+      <div class="modal-body">
+        <div class="item">1 Cigarro suelto Pall Mall $10 <button class="add-btn">AGREGAR</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rockola-modal" class="modal product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">ROCKOLA VIRTUAL</h2>
+        <button class="close-btn">CERRAR</button>
+      </div>
+      <div class="modal-body">
+        <div class="item">Canción 1 (gratis) <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Canción 2 (gratis) <button class="add-btn">AGREGAR</button></div>
+        <div class="item">Canción 3 (gratis) <button class="add-btn">AGREGAR</button></div>
+        <h3>TU PLAYLIST</h3>
+        <div id="playlist-display" class="empty"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="recibo-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-btn">CERRAR</button>
+        <h2 class="modal-title">RECIBO</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Items Ordenados</h3>
+        <div id="recibo-items"></div>
+        <h3>Playlist</h3>
+        <div id="recibo-playlist"></div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-total" id="recibo-total">Total: $0</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pagar-overlay" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-btn">CERRAR</button>
+        <h2 class="modal-title">DESGLOSE DE PAGO</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Items</h3>
+        <div id="pagar-items"></div>
+        <h3>Playlist</h3>
+        <div id="pagar-playlist"></div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-total" id="pagar-total">Total: $0</div>
+        <button id="confirmar-btn">CONFIRMAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="propina-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-btn">CERRAR</button>
+        <h2 class="modal-title">PROPINA</h2>
+      </div>
+      <div class="modal-body">
+        <p>¿Te la pasaste chido? 😎 Si nuestro servicio te sacó una sonrisa, ¿nos echas una manita con la propina? ¡Gracias por hacer que IVANNA'S BAR vibre contigo! 🫶</p>
+        <div class="propina-buttons">
+          <button class="propina-btn" data-amount="15">$15</button>
+          <button class="propina-btn" data-amount="20">$20</button>
+          <button class="propina-btn" data-amount="30">$30</button>
+          <button id="otro-propina">Otro</button>
+        </div>
+        <input id="custom-propina" type="number" placeholder="Cantidad personalizada">
+        <div id="propina-total">Total actual: $0</div>
+      </div>
+      <div class="modal-footer">
+        <button id="pagar-final-btn">PAGAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="despedida-modal" class="modal">
+    <div class="modal-content">
+      <p>Gracias, espero hayas disfrutado tanto como nosotros atenderte 🫶. ¡Vuelve pronto! 🫡</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
